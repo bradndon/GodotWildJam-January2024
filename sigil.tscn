@@ -1,0 +1,409 @@
+[gd_scene load_steps=44 format=3 uid="uid://btv5fy6ilkoxr"]
+
+[ext_resource type="Script" path="res://sigil.gd" id="1_wld3h"]
+[ext_resource type="Shader" path="res://glow.gdshader" id="2_v7l5m"]
+[ext_resource type="Texture2D" uid="uid://dihgaxe2rcn77" path="res://sigils/b2_unpressed.png" id="3_tndu8"]
+[ext_resource type="Texture2D" uid="uid://bt7sa8sv535mp" path="res://sigils/b1_disabled.png" id="4_aempn"]
+[ext_resource type="Texture2D" uid="uid://c8h44s53yd8h5" path="res://sigils/b2_pressed.png" id="4_bj2y3"]
+[ext_resource type="Texture2D" uid="uid://e58ddh1pfpgu" path="res://sigils/b1_unpressed.png" id="4_pryxl"]
+[ext_resource type="BitMap" uid="uid://bwca8gxols0dp" path="res://sigils/b1_clickmask.png" id="4_v6sv1"]
+[ext_resource type="Texture2D" uid="uid://cupfmyhvjjsj8" path="res://sigils/b1_pressed.png" id="5_2h5gd"]
+[ext_resource type="Texture2D" uid="uid://cek03sgs6bc1n" path="res://sigils/lil.png" id="5_i8573"]
+[ext_resource type="Texture2D" uid="uid://ts337hjh4ce4" path="res://sigils/b4_unpressed.png" id="7_64rn3"]
+[ext_resource type="AudioStream" uid="uid://gbjnp7drjh4k" path="res://sigil.mp3" id="7_xpsv2"]
+[ext_resource type="Texture2D" uid="uid://bmcjmx1s4c7c1" path="res://sigils/b4_pressed.png" id="8_cohpp"]
+[ext_resource type="BitMap" uid="uid://ds8fb0td8ox8" path="res://sigils/b2_clickmask.png" id="8_nrlu1"]
+[ext_resource type="Texture2D" uid="uid://cbo77r67jda6p" path="res://sigils/b3_unpressed.png" id="9_xucl6"]
+[ext_resource type="Texture2D" uid="uid://b8nqnwjpiq71f" path="res://sigils/b2_disabled.png" id="10_1db4h"]
+[ext_resource type="Texture2D" uid="uid://b8nsgko8ajdps" path="res://sigils/b3_pressed.png" id="10_ppdar"]
+[ext_resource type="BitMap" uid="uid://nl37yxhubufc" path="res://sigils/b4_clickmask.png" id="11_o046b"]
+[ext_resource type="Texture2D" uid="uid://ci5ejrpt3m6bx" path="res://sigils/b4_disabled.png" id="14_ffegr"]
+[ext_resource type="BitMap" uid="uid://b87aj6jvggonn" path="res://sigils/b3_clickmask.png" id="14_g0wbx"]
+[ext_resource type="Texture2D" uid="uid://b3mj58vyy48yn" path="res://sigils/b5_unpressed.png" id="16_4oof8"]
+[ext_resource type="Texture2D" uid="uid://dunaukmohmw8d" path="res://sigils/b5_pressed.png" id="17_p7ex0"]
+[ext_resource type="Texture2D" uid="uid://chodmupjwil5q" path="res://sigils/b3_disabled.png" id="18_o7t8p"]
+[ext_resource type="BitMap" uid="uid://cmilmijpp0jal" path="res://sigils/b5_clickmask.png" id="18_yuryr"]
+[ext_resource type="Texture2D" uid="uid://wp7wgcvg3k08" path="res://sigils/b6_unpressed.png" id="19_2rig4"]
+[ext_resource type="Texture2D" uid="uid://o7qyy53nbj3d" path="res://sigils/b6_pressed.png" id="20_68n3s"]
+[ext_resource type="BitMap" uid="uid://cs6oo3ppx5vn7" path="res://sigils/b6_clickmask.png" id="21_apqem"]
+[ext_resource type="Texture2D" uid="uid://cidescknole7m" path="res://sigils/b7_unpressed.png" id="22_34hdq"]
+[ext_resource type="Texture2D" uid="uid://c36gh87f20ylj" path="res://sigils/b5_disabled.png" id="22_lm3us"]
+[ext_resource type="Texture2D" uid="uid://b8ihs11y577sq" path="res://sigils/b7_pressed.png" id="23_kfn8e"]
+[ext_resource type="BitMap" uid="uid://b56ecl3klynoy" path="res://sigils/b7_clickmask.png" id="24_r5nbq"]
+[ext_resource type="Texture2D" uid="uid://bp5taoic88oy4" path="res://sigils/b8_unpressed.png" id="25_4p4t0"]
+[ext_resource type="Texture2D" uid="uid://dxue6wuedl6vw" path="res://sigils/b6_disabled.png" id="26_giq1c"]
+[ext_resource type="Texture2D" uid="uid://cl33wnwrg3o6v" path="res://sigils/b8_pressed.png" id="26_ym003"]
+[ext_resource type="BitMap" uid="uid://ix41v0yy7goi" path="res://sigils/b8_clickmask.png" id="27_800dn"]
+[ext_resource type="Texture2D" uid="uid://mw7x6a2qe34d" path="res://sigils/b7_disabled.png" id="30_i2vtl"]
+[ext_resource type="Texture2D" uid="uid://1004j7ybc80p" path="res://sigils/b8_disabled.png" id="34_ncbtb"]
+[ext_resource type="PackedScene" uid="uid://brx3xur8dmued" path="res://x.tscn" id="36_6nn3n"]
+[ext_resource type="Texture2D" uid="uid://b7kx31jnqt7la" path="res://fired.png" id="38_3k6xf"]
+
+[sub_resource type="Gradient" id="Gradient_x7j7r"]
+offsets = PackedFloat32Array(0.00377357, 0.998586)
+colors = PackedColorArray(0.917647, 0.898039, 0.94902, 1, 0.917647, 0.898039, 0.94902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2prb1"]
+gradient = SubResource("Gradient_x7j7r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_haxa0"]
+shader = ExtResource("2_v7l5m")
+shader_parameter/color1 = null
+shader_parameter/color2 = null
+shader_parameter/threshold = null
+shader_parameter/intensity = null
+shader_parameter/opacity = null
+shader_parameter/glow_color = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r30yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiv5r"]
+bg_color = Color(0.184314, 0.501961, 0, 1)
+
+[node name="sigil" type="Node2D"]
+script = ExtResource("1_wld3h")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 1220.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_2prb1")
+
+[node name="b7" type="TextureButton" parent="."]
+offset_left = 615.0
+offset_top = 424.0
+offset_right = 804.0
+offset_bottom = 549.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("22_34hdq")
+texture_pressed = ExtResource("23_kfn8e")
+texture_disabled = ExtResource("30_i2vtl")
+texture_click_mask = ExtResource("24_r5nbq")
+stretch_mode = 0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="b7"]
+position = Vector2(92, 66.5)
+rotation = -0.207694
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b7"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b6" type="TextureButton" parent="."]
+offset_left = 389.0
+offset_top = 425.0
+offset_right = 570.0
+offset_bottom = 548.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("19_2rig4")
+texture_pressed = ExtResource("20_68n3s")
+texture_disabled = ExtResource("26_giq1c")
+texture_click_mask = ExtResource("21_apqem")
+stretch_mode = 0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="b6"]
+position = Vector2(92, 66.5)
+rotation = -0.207694
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b6"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b8" type="TextureButton" parent="."]
+offset_left = 803.0
+offset_top = 456.0
+offset_right = 1016.0
+offset_bottom = 586.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("25_4p4t0")
+texture_pressed = ExtResource("26_ym003")
+texture_disabled = ExtResource("34_ncbtb")
+texture_click_mask = ExtResource("27_800dn")
+stretch_mode = 0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="b8"]
+position = Vector2(92, 66.5)
+rotation = -0.207694
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b8"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b5" type="TextureButton" parent="."]
+offset_left = 188.0
+offset_top = 460.0
+offset_right = 405.0
+offset_bottom = 595.0
+scale = Vector2(1.43, 1.43)
+texture_normal = ExtResource("16_4oof8")
+texture_pressed = ExtResource("17_p7ex0")
+texture_disabled = ExtResource("22_lm3us")
+texture_click_mask = ExtResource("18_yuryr")
+stretch_mode = 0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="b5"]
+position = Vector2(92, 66.5)
+rotation = -0.207694
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b5"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b1" type="TextureButton" parent="."]
+offset_left = 177.0
+offset_top = 626.0
+offset_right = 354.0
+offset_bottom = 797.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_pryxl")
+texture_pressed = ExtResource("5_2h5gd")
+texture_disabled = ExtResource("4_aempn")
+texture_click_mask = ExtResource("4_v6sv1")
+stretch_mode = 0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="b1"]
+position = Vector2(83.5, 55)
+rotation = 0.705113
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 32)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b1"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b2" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_haxa0")
+offset_left = 336.0
+offset_top = 706.0
+offset_right = 544.0
+offset_bottom = 861.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_tndu8")
+texture_pressed = ExtResource("4_bj2y3")
+texture_disabled = ExtResource("10_1db4h")
+texture_click_mask = ExtResource("8_nrlu1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="b2"]
+position = Vector2(117.5, 61)
+rotation = 0.249582
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b2"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b3" type="TextureButton" parent="."]
+offset_left = 841.0
+offset_top = 613.0
+offset_right = 1019.0
+offset_bottom = 792.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("7_64rn3")
+texture_pressed = ExtResource("8_cohpp")
+texture_disabled = ExtResource("14_ffegr")
+texture_click_mask = ExtResource("11_o046b")
+stretch_mode = 0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="b3"]
+position = Vector2(83, 63.5)
+rotation = -0.698132
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 32)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b3"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="b4" type="TextureButton" parent="."]
+offset_left = 624.0
+offset_top = 695.0
+offset_right = 821.0
+offset_bottom = 857.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("9_xucl6")
+texture_pressed = ExtResource("10_ppdar")
+texture_disabled = ExtResource("18_o7t8p")
+texture_click_mask = ExtResource("14_g0wbx")
+stretch_mode = 0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="b4"]
+position = Vector2(92, 66.5)
+rotation = -0.207694
+emitting = false
+amount = 75
+one_shot = true
+speed_scale = 0.9
+explosiveness = 0.8
+randomness = 0.38
+texture = ExtResource("5_i8573")
+emission_shape = 3
+emission_rect_extents = Vector2(70, 30)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="b4"]
+stream = ExtResource("7_xpsv2")
+volume_db = -25.012
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1240.0
+offset_bottom = 90.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_r30yg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wiv5r")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="X" parent="." node_paths=PackedStringArray("job") instance=ExtResource("36_6nn3n")]
+position = Vector2(1154, 120)
+job = NodePath("..")
+
+[node name="X2" parent="." node_paths=PackedStringArray("job") instance=ExtResource("36_6nn3n")]
+position = Vector2(1048, 120)
+job = NodePath("..")
+strike_num = 2
+
+[node name="X3" parent="." node_paths=PackedStringArray("job") instance=ExtResource("36_6nn3n")]
+position = Vector2(944, 120)
+job = NodePath("..")
+strike_num = 3
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(1280, 1024)
+offset_right = 1280.0
+offset_bottom = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Fired" type="Sprite2D" parent="Panel"]
+position = Vector2(639, 535)
+scale = Vector2(2.38073, 2.38073)
+texture = ExtResource("38_3k6xf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1020.0
+offset_right = 1280.0
+offset_bottom = 1220.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_2prb1")
+
+[connection signal="pressed" from="b7" to="." method="_on_pressed" binds= ["b7"]]
+[connection signal="pressed" from="b6" to="." method="_on_pressed" binds= ["b6"]]
+[connection signal="pressed" from="b8" to="." method="_on_pressed" binds= ["b8"]]
+[connection signal="pressed" from="b5" to="." method="_on_pressed" binds= ["b5"]]
+[connection signal="pressed" from="b1" to="." method="_on_pressed" binds= ["b1"]]
+[connection signal="pressed" from="b2" to="." method="_on_pressed" binds= ["b2"]]
+[connection signal="pressed" from="b3" to="." method="_on_pressed" binds= ["b3"]]
+[connection signal="pressed" from="b4" to="." method="_on_pressed" binds= ["b4"]]

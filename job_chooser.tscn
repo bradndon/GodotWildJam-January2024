@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3pianbsohu2f"]
+
+[ext_resource type="Script" path="res://job_chooser.gd" id="1_xn2s6"]
+
+[node name="JobChooser" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xn2s6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Choose your next job"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Job1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Teleporter
+
+Cick the sigils in
+order as shown on
+the bottom.
+
+Starting Base Pay: $10
+Starting Commision: $4"
+
+[node name="Job2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Chef
+
+Click and hold on
+ the food as it passes
+to cook.
+
+Starting Base Pay: $15
+Starting Commision: $1"

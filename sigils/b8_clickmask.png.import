@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ix41v0yy7goi"
+path="res://.godot/imported/b8_clickmask.png-7431fda721e985f60d357d6a68cdfc7a.res"
+
+[deps]
+
+source_file="res://sigils/b8_clickmask.png"
+dest_files=["res://.godot/imported/b8_clickmask.png-7431fda721e985f60d357d6a68cdfc7a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

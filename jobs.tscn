@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0exvi6t1bmh6"]
+
+[ext_resource type="Script" path="res://jobs.gd" id="1_p2137"]
+
+[node name="Jobs" type="VBoxContainer"]
+custom_minimum_size = Vector2(1280, 1024)
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_p2137")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Game1Top" type="Panel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Game1" type="SubViewportContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/VBoxContainer/Game1"]
+handle_input_locally = false
+size = Vector2i(639, 251)
+render_target_update_mode = 4
+
+[node name="Game1Bot" type="Panel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Game2Top" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Game2" type="SubViewportContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/VBoxContainer2/Game2"]
+handle_input_locally = false
+size = Vector2i(640, 251)
+render_target_update_mode = 4
+
+[node name="Game2Bot" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Game1Top2" type="Panel" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Game1" type="SubViewportContainer" parent="HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/VBoxContainer/Game1"]
+handle_input_locally = false
+size = Vector2i(421, 510)
+render_target_update_mode = 4
+
+[node name="Game1Top" type="Panel" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Game2" type="SubViewportContainer" parent="HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/VBoxContainer2/Game2"]
+handle_input_locally = false
+size = Vector2i(421, 510)
+render_target_update_mode = 4

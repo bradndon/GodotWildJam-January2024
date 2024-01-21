@@ -1,0 +1,187 @@
+[gd_scene load_steps=21 format=3 uid="uid://bld5a5a8ytxna"]
+
+[ext_resource type="Script" path="res://upgrade.gd" id="1_l2u3c"]
+[ext_resource type="Texture2D" uid="uid://e3o0ef47iu7s" path="res://promo.png" id="2_xswwe"]
+[ext_resource type="Texture2D" uid="uid://c31uvjy60u644" path="res://scrolls/body1.png" id="3_iumog"]
+[ext_resource type="Texture2D" uid="uid://5mrd6i3yy382" path="res://scrolls/body1_hover.png" id="4_0tx2q"]
+[ext_resource type="Texture2D" uid="uid://dkb6audaosec1" path="res://scrolls/body1_pressed.png" id="5_ygd14"]
+[ext_resource type="Texture2D" uid="uid://cdiqke6klity3" path="res://scrolls/body2.png" id="6_l4dca"]
+[ext_resource type="Texture2D" uid="uid://dn0xp43bi3ojv" path="res://scrolls/body2_hover.png" id="7_vgy1b"]
+[ext_resource type="Texture2D" uid="uid://5ykbcjkkjaf4" path="res://scrolls/body2_pressed.png" id="8_168ym"]
+
+[sub_resource type="Gradient" id="Gradient_8xyrm"]
+offsets = PackedFloat32Array(0.00377357, 1)
+colors = PackedColorArray(0.917647, 0.898039, 0.94902, 1, 0.917647, 0.898039, 0.94902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_avi7s"]
+gradient = SubResource("Gradient_8xyrm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7k7k4"]
+font_size = 72
+outline_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_dogdj"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpla4"]
+font_size = 32
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sksjl"]
+texture = ExtResource("3_iumog")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndfc7"]
+texture = ExtResource("4_0tx2q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meefu"]
+texture = ExtResource("5_ygd14")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcj5k"]
+texture = ExtResource("6_l4dca")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjvje"]
+texture = ExtResource("7_vgy1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6vj1"]
+texture = ExtResource("8_168ym")
+
+[sub_resource type="LabelSettings" id="LabelSettings_sc3fe"]
+font_size = 32
+
+[node name="Upgrade" type="HBoxContainer"]
+custom_minimum_size = Vector2(1280, 1024)
+offset_right = 1280.0
+offset_bottom = 1024.0
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_l2u3c")
+
+[node name="Promo" type="Sprite2D" parent="."]
+position = Vector2(663, 760)
+rotation = -3.14159
+scale = Vector2(2.30652, 2.30652)
+texture = ExtResource("2_xswwe")
+
+[node name="TextureRect2" type="TextureRect" parent="Promo"]
+z_index = -1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -878.0
+offset_right = -272.0
+offset_bottom = -329.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_avi7s")
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.71
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Promotion!"
+label_settings = SubResource("LabelSettings_7k7k4")
+horizontal_alignment = 1
+
+[node name="BasePay" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Base Pay +$2"
+label_settings = SubResource("LabelSettings_dogdj")
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+
+[node name="choose" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choose an upgrade:"
+label_settings = SubResource("LabelSettings_gpla4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.73
+
+[node name="Upgrade1" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_sksjl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ndfc7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_meefu")
+text = "Upgrade 1
+khjgjkh"
+
+[node name="Upgrade2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_pcj5k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mjvje")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x6vj1")
+text = "Upgrade 2"
+
+[node name="Panel3" type="Panel" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 75)
+layout_mode = 2
+
+[node name="choose2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Or pick up another job"
+label_settings = SubResource("LabelSettings_sc3fe")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.73
+
+[node name="NewJob2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_sksjl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ndfc7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_meefu")
+text = "Teleporter
+Base Pay: $10
+Comission: $4"
+
+[node name="NewJob" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_pcj5k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mjvje")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x6vj1")
+text = "Chef
+Base Pay: $15
+Comission: $1"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Upgrade1" to="." method="_on_pressed" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Upgrade2" to="." method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NewJob2" to="." method="_on_pressed" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NewJob" to="." method="_on_pressed" binds= [3]]

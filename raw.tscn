@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://rdwtnrn8r7gs"]
+
+[ext_resource type="Script" path="res://raw.gd" id="1_ib5ub"]
+[ext_resource type="Texture2D" uid="uid://c8ikyt0jkrxov" path="res://uncooked.png" id="2_2656i"]
+[ext_resource type="Texture2D" uid="uid://dn3xt7hww8l2q" path="res://cooked.png" id="3_0nk1g"]
+[ext_resource type="Texture2D" uid="uid://cjbp1nccm71is" path="res://fire.png" id="4_mlj54"]
+[ext_resource type="AudioStream" uid="uid://bufwp7stkvo2y" path="res://fire.wav" id="5_jtr6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wibva"]
+size = Vector2(222, 128)
+
+[node name="CharacterBody2D" type="PathFollow2D"]
+loop = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(-1, 1)
+script = ExtResource("1_ib5ub")
+
+[node name="Raw" type="TextureButton" parent="CharacterBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -102.0
+offset_right = 414.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_2656i")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CharacterBody2D/Raw"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("3_0nk1g")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="CharacterBody2D/Raw"]
+position = Vector2(257.5, 212.5)
+rotation = -0.207694
+emitting = false
+amount = 100
+lifetime = 0.6
+speed_scale = 0.6
+randomness = 0.38
+texture = ExtResource("4_mlj54")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 60)
+gravity = Vector2(2.08165e-12, -500)
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color = Color(0.941176, 0.176471, 0.227451, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-34, -35)
+shape = SubResource("RectangleShape2D_wibva")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("5_jtr6v")
+volume_db = 5.54
+
+[connection signal="button_down" from="CharacterBody2D/Raw" to="CharacterBody2D" method="_on_down"]
+[connection signal="button_up" from="CharacterBody2D/Raw" to="CharacterBody2D" method="_on_up"]
+[connection signal="mouse_exited" from="CharacterBody2D/Raw" to="CharacterBody2D" method="_on_up"]

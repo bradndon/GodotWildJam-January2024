@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4hbeal7lj23c"]
+
+[ext_resource type="Script" path="res://Draw.gd" id="1_iq2di"]
+
+[node name="draw" type="Node2D"]
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(358, 376, 354, 160, 736, 166, 727, 379, 373, 378)
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(1, 0, 1, 1)
+script = ExtResource("1_iq2di")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false

@@ -1,0 +1,400 @@
+[gd_scene load_steps=28 format=3 uid="uid://da412djv3qmgf"]
+
+[ext_resource type="Shader" path="res://fading.gdshader" id="1_1x0lu"]
+[ext_resource type="Script" path="res://multiple.gd" id="1_glnq8"]
+[ext_resource type="Script" path="res://coffee.gd" id="1_jlphv"]
+[ext_resource type="Texture2D" uid="uid://c5ord50rlcyd6" path="res://landscapeTiles_073.png" id="1_y1a2j"]
+[ext_resource type="Texture2D" uid="uid://r0oynpr1s0ql" path="res://landscapeTiles_086.png" id="2_i0x7n"]
+[ext_resource type="Script" path="res://Player.gd" id="3_4imfr"]
+[ext_resource type="Texture2D" uid="uid://dakapc7rnxw82" path="res://icon.svg" id="4_4gqt0"]
+[ext_resource type="Script" path="res://job_timer.gd" id="4_88oaf"]
+[ext_resource type="Texture2D" uid="uid://c8ikyt0jkrxov" path="res://uncooked.png" id="5_l0lx3"]
+[ext_resource type="Script" path="res://raw_counter.gd" id="7_2swlm"]
+[ext_resource type="Texture2D" uid="uid://q3eo3837wb5q" path="res://circle.png" id="8_1i2xe"]
+[ext_resource type="Script" path="res://timer_progress.gd" id="11_ihgkf"]
+[ext_resource type="Texture2D" uid="uid://bqeho4nw5q45r" path="res://caleb.png" id="13_3nigg"]
+[ext_resource type="PackedScene" uid="uid://dsr2f7nmm0vyo" path="res://flames.tscn" id="13_6mq2g"]
+[ext_resource type="PackedScene" uid="uid://brx3xur8dmued" path="res://x.tscn" id="14_j5k33"]
+[ext_resource type="PackedScene" uid="uid://btv5fy6ilkoxr" path="res://sigil.tscn" id="14_x4x0l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdejj"]
+texture = ExtResource("1_y1a2j")
+texture_region_size = Vector2i(132, 83)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66, 0, -64.3992, -16.0362, 0.254547, -49.1267, 63.8902, -15.018, 66, 0, 0, 33)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ijtt8"]
+texture = ExtResource("1_y1a2j")
+texture_region_size = Vector2i(132, 83)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -7)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_35u3h"]
+tile_shape = 1
+tile_size = Vector2i(132, 66)
+physics_layer_0/collision_layer = 2
+sources/4 = SubResource("TileSetAtlasSource_ijtt8")
+sources/0 = SubResource("TileSetAtlasSource_vdejj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r816d"]
+size = Vector2(2958.52, 2978.48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pnlw"]
+size = Vector2(237.382, 187)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gwac"]
+font_size = 72
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_723ns"]
+size = Vector2(127, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy575"]
+shader = ExtResource("1_1x0lu")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 1.0
+shader_parameter/outer_radius = 1.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2fpk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4a6d"]
+bg_color = Color(0.462745, 0.188235, 0.0470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nql37"]
+bg_color = Color(0.337255, 0.113725, 0.337255, 1)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("jobs")]
+script = ExtResource("1_glnq8")
+jobs = [NodePath("CanvasLayer/VBoxContainer/Flames/SubViewport/flames"), NodePath("CanvasLayer/VBoxContainer/Sigil/SubViewport/sigil")]
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+position = Vector2(210, 441)
+tile_set = SubResource("TileSet_35u3h")
+format = 2
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -4
+layer_0/tile_data = PackedInt32Array(65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262145, 4, 0, 131073, 4, 0, 196609, 4, 0, 262146, 4, 0, 196610, 4, 0, 131075, 4, 0, 65538, 4, 0, 2, 4, 0, 65537, 4, 0, 1, 4, 0, -65535, 4, 0, 131074, 4, 0, 65539, 4, 0, 3, 4, 0, -65534, 4, 0, -131070, 4, 0, -196606, 4, 0, -131069, 4, 0, -65533, 4, 0, 4, 4, 0, 131076, 4, 0, 327681, 4, 0, 327682, 4, 0, 262147, 4, 0, 196611, 4, 0, 65540, 4, 0, -131068, 4, 0, -65532, 4, 0, -196605, 4, 0, -262141, 4, 0, 393218, 4, 0, 458753, 4, 0, 524289, 4, 0, 458752, 4, 0, 393216, 4, 0, 327680, 4, 0, 262144, 4, 0, 393217, 4, 0, 262143, 4, 0, 327679, 4, 0, 393215, 4, 0, 458751, 4, 0, 524287, 4, 0, 196607, 4, 0, 131071, 4, 0, 65535, 4, 0, -2, 4, 0, 65534, 4, 0, 131070, 4, 0, -458755, 4, 0, -393219, 4, 0, -327683, 4, 0, -262147, 4, 0, -196611, 4, 0, -131075, 4, 0, -65539, 4, 0, -3, 4, 0, 65533, 4, 0, 131069, 4, 0, 196605, 4, 0, 262141, 4, 0, 327677, 4, 0, 393213, 4, 0, 458749, 4, 0, 524285, 4, 0, 589821, 4, 0, 655357, 4, 0, 720893, 4, 0, 786429, 4, 0, 851965, 4, 0, 917501, 4, 0, 983037, 4, 0, 1048573, 4, 0, 1114109, 4, 0, 1179645, 4, 0, -458754, 4, 0, -393218, 4, 0, -327682, 4, 0, -262146, 4, 0, -196610, 4, 0, -131074, 4, 0, -65538, 4, 0, 196606, 4, 0, 262142, 4, 0, 327678, 4, 0, 393214, 4, 0, 458750, 4, 0, 524286, 4, 0, 589822, 4, 0, 655358, 4, 0, 720894, 4, 0, 786430, 4, 0, 851966, 4, 0, 917502, 4, 0, 983038, 4, 0, 1048574, 4, 0, 1114110, 4, 0, 1179646, 4, 0, -458753, 4, 0, -393217, 4, 0, -327681, 4, 0, -262145, 4, 0, -196609, 4, 0, -131073, 4, 0, -65537, 4, 0, -1, 4, 0, 589823, 4, 0, 655359, 4, 0, 720895, 4, 0, 786431, 4, 0, 851967, 4, 0, 917503, 4, 0, 983039, 4, 0, 1048575, 4, 0, 1114111, 4, 0, 1179647, 4, 0, -524288, 4, 0, -458752, 4, 0, -393216, 4, 0, -327680, 4, 0, -262144, 4, 0, -196608, 4, 0, -131072, 4, 0, -65536, 4, 0, 0, 4, 0, 524288, 4, 0, 589824, 4, 0, 655360, 4, 0, 720896, 4, 0, 786432, 4, 0, 851968, 4, 0, 917504, 4, 0, 983040, 4, 0, 1048576, 4, 0, 1114112, 4, 0, -524287, 4, 0, -458751, 4, 0, -393215, 4, 0, -327679, 4, 0, -262143, 4, 0, -196607, 4, 0, -131071, 4, 0, 589825, 4, 0, 655361, 4, 0, 720897, 4, 0, 786433, 4, 0, 851969, 4, 0, 917505, 4, 0, 983041, 4, 0, 1048577, 4, 0, 1114113, 4, 0, -524286, 4, 0, -458750, 4, 0, -393214, 4, 0, -327678, 4, 0, -262142, 4, 0, 458754, 4, 0, 524290, 4, 0, 589826, 4, 0, 655362, 4, 0, 720898, 4, 0, 786434, 4, 0, 851970, 4, 0, 917506, 4, 0, 983042, 4, 0, 1048578, 4, 0, 1114114, 4, 0, -524285, 4, 0, -458749, 4, 0, -393213, 4, 0, -327677, 4, 0, 327683, 4, 0, 393219, 4, 0, 458755, 4, 0, 524291, 4, 0, 589827, 4, 0, 655363, 4, 0, 720899, 4, 0, 786435, 4, 0, 851971, 4, 0, 917507, 4, 0, 983043, 4, 0, 1048579, 4, 0, 1114115, 4, 0, -524284, 4, 0, -458748, 4, 0, -393212, 4, 0, -327676, 4, 0, -262140, 4, 0, -196604, 4, 0, 196612, 4, 0, 262148, 4, 0, 327684, 4, 0, 393220, 4, 0, 458756, 4, 0, 524292, 4, 0, 589828, 4, 0, 655364, 4, 0, 720900, 4, 0, 786436, 4, 0, 851972, 4, 0, 917508, 4, 0, 983044, 4, 0, 1048580, 4, 0, 1114116, 4, 0, -524283, 4, 0, -458747, 4, 0, -393211, 4, 0, -327675, 4, 0, -262139, 4, 0, -196603, 4, 0, -131067, 4, 0, -65531, 4, 0, 5, 4, 0, 65541, 4, 0, 131077, 4, 0, 196613, 4, 0, 262149, 4, 0, 327685, 4, 0, 393221, 4, 0, 458757, 4, 0, 524293, 4, 0, 589829, 4, 0, 655365, 4, 0, 720901, 4, 0, 786437, 4, 0, 851973, 4, 0, 917509, 4, 0, 983045, 4, 0, 1048581, 4, 0, 1114117, 4, 0, -524282, 4, 0, -458746, 4, 0, -393210, 4, 0, -327674, 4, 0, -262138, 4, 0, -196602, 4, 0, -131066, 4, 0, -65530, 4, 0, 6, 4, 0, 65542, 4, 0, 131078, 4, 0, 196614, 4, 0, 262150, 4, 0, 327686, 4, 0, 393222, 4, 0, 458758, 4, 0, 524294, 4, 0, 589830, 4, 0, 655366, 4, 0, 720902, 4, 0, 786438, 4, 0, 851974, 4, 0, 917510, 4, 0, 983046, 4, 0, 1048582, 4, 0, 1114118, 4, 0, -524281, 4, 0, -458745, 4, 0, -393209, 4, 0, -327673, 4, 0, -262137, 4, 0, -196601, 4, 0, -131065, 4, 0, -65529, 4, 0, 7, 4, 0, 65543, 4, 0, 131079, 4, 0, 196615, 4, 0, 262151, 4, 0, 327687, 4, 0, 393223, 4, 0, 458759, 4, 0, 524295, 4, 0, 589831, 4, 0, 655367, 4, 0, 720903, 4, 0, 786439, 4, 0, 851975, 4, 0, 917511, 4, 0, 983047, 4, 0, 1048583, 4, 0, 1114119, 4, 0, -786436, 4, 0, -720900, 4, 0, -655364, 4, 0, -589828, 4, 0, -524292, 4, 0, -458756, 4, 0, -393220, 4, 0, -327684, 4, 0, -262148, 4, 0, -196612, 4, 0, -131076, 4, 0, -65540, 4, 0, -4, 4, 0, 65532, 4, 0, 131068, 4, 0, 196604, 4, 0, 262140, 4, 0, 327676, 4, 0, 393212, 4, 0, 458748, 4, 0, 524284, 4, 0, 589820, 4, 0, 655356, 4, 0, 720892, 4, 0, 786428, 4, 0, 851964, 4, 0, 917500, 4, 0, 983036, 4, 0, 1048572, 4, 0, 1114108, 4, 0, 1179644, 4, 0, 1245180, 4, 0, 1310716, 4, 0, 1376252, 4, 0, 1441788, 4, 0, 1507324, 4, 0, 1572860, 4, 0, -786435, 4, 0, -720899, 4, 0, -655363, 4, 0, -589827, 4, 0, -524291, 4, 0, 1245181, 4, 0, 1310717, 4, 0, 1376253, 4, 0, 1441789, 4, 0, 1507325, 4, 0, 1572861, 4, 0, -786434, 4, 0, -720898, 4, 0, -655362, 4, 0, -589826, 4, 0, -524290, 4, 0, 1245182, 4, 0, 1310718, 4, 0, 1376254, 4, 0, 1441790, 4, 0, 1507326, 4, 0, 1572862, 4, 0, -786433, 4, 0, -720897, 4, 0, -655361, 4, 0, -589825, 4, 0, -524289, 4, 0, 1245183, 4, 0, 1310719, 4, 0, 1376255, 4, 0, 1441791, 4, 0, 1507327, 4, 0, 1572863, 4, 0, -851968, 4, 0, -786432, 4, 0, -720896, 4, 0, -655360, 4, 0, -589824, 4, 0, 1179648, 4, 0, 1245184, 4, 0, 1310720, 4, 0, 1376256, 4, 0, 1441792, 4, 0, 1507328, 4, 0, -851967, 4, 0, -786431, 4, 0, -720895, 4, 0, -655359, 4, 0, -589823, 4, 0, 1179649, 4, 0, 1245185, 4, 0, 1310721, 4, 0, 1376257, 4, 0, 1441793, 4, 0, 1507329, 4, 0, -851966, 4, 0, -786430, 4, 0, -720894, 4, 0, -655358, 4, 0, -589822, 4, 0, 1179650, 4, 0, 1245186, 4, 0, 1310722, 4, 0, 1376258, 4, 0, 1441794, 4, 0, 1507330, 4, 0, -851965, 4, 0, -786429, 4, 0, -720893, 4, 0, -655357, 4, 0, -589821, 4, 0, 1179651, 4, 0, 1245187, 4, 0, 1310723, 4, 0, 1376259, 4, 0, 1441795, 4, 0, 1507331, 4, 0, -851964, 4, 0, -786428, 4, 0, -720892, 4, 0, -655356, 4, 0, -589820, 4, 0, 1179652, 4, 0, 1245188, 4, 0, 1310724, 4, 0, 1376260, 4, 0, 1441796, 4, 0, 1507332, 4, 0, -851963, 4, 0, -786427, 4, 0, -720891, 4, 0, -655355, 4, 0, -589819, 4, 0, 1179653, 4, 0, 1245189, 4, 0, 1310725, 4, 0, 1376261, 4, 0, 1441797, 4, 0, 1507333, 4, 0, -851962, 4, 0, -786426, 4, 0, -720890, 4, 0, -655354, 4, 0, -589818, 4, 0, 1179654, 4, 0, 1245190, 4, 0, 1310726, 4, 0, 1376262, 4, 0, 1441798, 4, 0, 1507334, 4, 0, -851961, 4, 0, -786425, 4, 0, -720889, 4, 0, -655353, 4, 0, -589817, 4, 0, 1179655, 4, 0, 1245191, 4, 0, 1310727, 4, 0, 1376263, 4, 0, 1441799, 4, 0, 1507335, 4, 0, -851960, 4, 0, -786424, 4, 0, -720888, 4, 0, -655352, 4, 0, -589816, 4, 0, -524280, 4, 0, -458744, 4, 0, -393208, 4, 0, -327672, 4, 0, -262136, 4, 0, -196600, 4, 0, -131064, 4, 0, -65528, 4, 0, 8, 4, 0, 65544, 4, 0, 131080, 4, 0, 196616, 4, 0, 262152, 4, 0, 327688, 4, 0, 393224, 4, 0, 458760, 4, 0, 524296, 4, 0, 589832, 4, 0, 655368, 4, 0, 720904, 4, 0, 786440, 4, 0, 851976, 4, 0, 917512, 4, 0, 983048, 4, 0, 1048584, 4, 0, 1114120, 4, 0, 1179656, 4, 0, 1245192, 4, 0, 1310728, 4, 0, 1376264, 4, 0, 1441800, 4, 0, 1507336, 4, 0, -851959, 4, 0, -786423, 4, 0, -720887, 4, 0, -655351, 4, 0, -589815, 4, 0, -524279, 4, 0, -458743, 4, 0, -393207, 4, 0, -327671, 4, 0, -262135, 4, 0, -196599, 4, 0, -131063, 4, 0, -65527, 4, 0, 9, 4, 0, 65545, 4, 0, 131081, 4, 0, 196617, 4, 0, 262153, 4, 0, 327689, 4, 0, 393225, 4, 0, 458761, 4, 0, 524297, 4, 0, 589833, 4, 0, 655369, 4, 0, 720905, 4, 0, 786441, 4, 0, 851977, 4, 0, 917513, 4, 0, 983049, 4, 0, 1048585, 4, 0, 1114121, 4, 0, 1179657, 4, 0, 1245193, 4, 0, 1310729, 4, 0, 1376265, 4, 0, 1441801, 4, 0, 1507337, 4, 0, 458762, 4, 0)
+layer_1/name = "Wall"
+layer_1/modulate = Color(1, 0.101961, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/z_index = -3
+layer_1/tile_data = PackedInt32Array(-196605, 0, 0, -262141, 0, 0, -196602, 4, 0, -131068, 0, 0, -65533, 0, 0, -131069, 0, 0, -196606, 0, 0)
+layer_2/name = "wall2"
+layer_2/enabled = false
+layer_2/modulate = Color(1, 1, 0, 1)
+layer_2/y_sort_enabled = true
+layer_2/z_index = -2
+layer_2/tile_data = PackedInt32Array(-196606, 0, 0, -262141, 0, 0, -196605, 0, 0, -131068, 0, 0, -65533, 0, 0, -131069, 0, 0)
+
+[node name="Sigil" type="Sprite2D" parent="."]
+position = Vector2(92.9999, 678)
+rotation = -0.410152
+scale = Vector2(0.05, 0.05)
+skew = -0.785398
+texture = ExtResource("8_1i2xe")
+
+[node name="Area2D" type="Area2D" parent="Sigil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sigil/Area2D"]
+position = Vector2(2.40039, -12.9512)
+shape = SubResource("RectangleShape2D_r816d")
+
+[node name="Timer" type="Timer" parent="Sigil"]
+wait_time = 20.0
+autostart = true
+script = ExtResource("4_88oaf")
+
+[node name="Progress" type="TextureProgressBar" parent="Sigil/Timer"]
+offset_left = 69.0
+offset_top = 570.0
+offset_right = 197.0
+offset_bottom = 698.0
+scale = Vector2(0.5, 0.5)
+value = 60.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_l0lx3")
+
+[node name="Chef" type="Sprite2D" parent="."]
+modulate = Color(0.580392, 0.215686, 0, 1)
+position = Vector2(672, 378)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_i0x7n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chef"]
+scale = Vector2(2.32727, 1)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chef/StaticBody2D"]
+scale = Vector2(3.14844, 4.73333)
+polygon = PackedVector2Array(-8.87097, -2.8169, -8.87097, 3.87324, 0, 10.2113, 9.09843, 3.52113, 9.09843, -2.8169, 6.59636, -4.92958, 0, -9.85915)
+
+[node name="Area2D" type="Area2D" parent="Chef"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chef/Area2D"]
+position = Vector2(-1.16333, 0.5)
+shape = SubResource("RectangleShape2D_7pnlw")
+
+[node name="Timer" type="Timer" parent="Chef"]
+wait_time = 7.0
+autostart = true
+script = ExtResource("4_88oaf")
+
+[node name="Progress" type="TextureProgressBar" parent="Chef/Timer"]
+offset_left = 648.0
+offset_top = 281.0
+offset_right = 776.0
+offset_bottom = 409.0
+scale = Vector2(0.5, 0.5)
+value = 60.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_l0lx3")
+
+[node name="Label3" type="Label" parent="Chef/Timer" node_paths=PackedStringArray("flames")]
+visible = false
+offset_left = 719.0
+offset_top = 262.0
+offset_right = 801.0
+offset_bottom = 361.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_1gwac")
+vertical_alignment = 1
+script = ExtResource("7_2swlm")
+flames = NodePath("../../../CanvasLayer/VBoxContainer/Flames/SubViewport/flames")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(507, 489)
+scale = Vector2(0.5, 0.5)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_4imfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("4_4gqt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 54)
+shape = SubResource("RectangleShape2D_723ns")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(-1.16333, 0.5)
+shape = SubResource("RectangleShape2D_7pnlw")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 75.0
+offset_top = 248.0
+offset_right = 115.0
+offset_bottom = 288.0
+script = ExtResource("1_jlphv")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_jy575")
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 506.0
+offset_bottom = 68.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_c2fpk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i4a6d")
+value = 50.0
+show_percentage = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nql37")
+
+[node name="Sigil2" type="Sprite2D" parent="CanvasLayer/VBoxContainer/Panel"]
+position = Vector2(330, 66)
+rotation = -0.410152
+scale = Vector2(0.04, 0.04)
+skew = -0.785398
+texture = ExtResource("8_1i2xe")
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer/Panel" node_paths=PackedStringArray("timer")]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 36.0
+offset_right = 589.0
+offset_bottom = 164.0
+scale = Vector2(0.5, 0.5)
+value = 60.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_l0lx3")
+script = ExtResource("11_ihgkf")
+timer = NodePath("../../../../Sigil/Timer")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
+texture = ExtResource("13_3nigg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_1gwac")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -277.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0:00"
+label_settings = SubResource("LabelSettings_1gwac")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="X" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(599, 44)
+scale = Vector2(0.6, 0.6)
+
+[node name="X2" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(662, 43)
+scale = Vector2(0.6, 0.6)
+strike_num = 2
+
+[node name="X3" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(734, 39)
+scale = Vector2(0.6, 0.6)
+strike_num = 3
+
+[node name="X4" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(601, 128)
+scale = Vector2(0.6, 0.6)
+
+[node name="X5" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(664, 127)
+scale = Vector2(0.6, 0.6)
+strike_num = 2
+
+[node name="X6" parent="CanvasLayer/VBoxContainer/Panel" instance=ExtResource("14_j5k33")]
+position = Vector2(736, 123)
+scale = Vector2(0.6, 0.6)
+strike_num = 3
+
+[node name="Sigil3" type="Sprite2D" parent="CanvasLayer/VBoxContainer/Panel"]
+modulate = Color(0.580392, 0.215686, 0, 1)
+position = Vector2(330, 147)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_i0x7n")
+
+[node name="Progress2" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer/Panel" node_paths=PackedStringArray("timer")]
+layout_mode = 0
+offset_left = 460.923
+offset_top = 116.946
+offset_right = 588.923
+offset_bottom = 244.946
+scale = Vector2(0.5, 0.5)
+value = 60.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_l0lx3")
+script = ExtResource("11_ihgkf")
+timer = NodePath("../../../../Chef/Timer")
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/Panel" node_paths=PackedStringArray("flames")]
+visible = false
+layout_mode = 0
+offset_left = 526.0
+offset_top = 100.0
+offset_right = 608.0
+offset_bottom = 199.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_1gwac")
+vertical_alignment = 1
+script = ExtResource("7_2swlm")
+flames = NodePath("../../Flames/SubViewport/flames")
+
+[node name="Flames" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/Flames"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="flames" parent="CanvasLayer/VBoxContainer/Flames/SubViewport" node_paths=PackedStringArray("timer") instance=ExtResource("13_6mq2g")]
+timer = NodePath("../../../../../Chef/Timer")
+
+[node name="Sigil" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/Sigil"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="sigil" parent="CanvasLayer/VBoxContainer/Sigil/SubViewport" node_paths=PackedStringArray("timer") instance=ExtResource("14_x4x0l")]
+timer = NodePath("../../../../../Sigil/Timer")
+
+[node name="MainTimer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Sigil/Area2D" to="Control" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sigil/Area2D" to="Control" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Chef/Area2D" to="Control" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Chef/Area2D" to="Control" method="_on_area_2d_body_exited"]
+[connection signal="start_job" from="CharacterBody2D" to="." method="_on_start_job"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_job_enter"]
+[connection signal="area_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_job_exit"]
+[connection signal="score" from="CanvasLayer/VBoxContainer/Flames/SubViewport/flames" to="." method="_on_score"]
+[connection signal="score" from="CanvasLayer/VBoxContainer/Sigil/SubViewport/sigil" to="." method="_on_score"]

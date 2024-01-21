@@ -1,0 +1,235 @@
+[gd_scene load_steps=22 format=3 uid="uid://bquwmvh6fondc"]
+
+[ext_resource type="Script" path="res://character_select.gd" id="1_ddh0o"]
+[ext_resource type="Texture2D" uid="uid://e3o0ef47iu7s" path="res://promo.png" id="2_xcs0o"]
+[ext_resource type="Texture2D" uid="uid://cbfoakkr6w7mi" path="res://hermione.jpg" id="3_8h528"]
+[ext_resource type="Texture2D" uid="uid://cxa28k11n6ku8" path="res://gandalf.png" id="3_kx2fl"]
+[ext_resource type="Texture2D" uid="uid://c31uvjy60u644" path="res://scrolls/body1.png" id="4_47m3c"]
+[ext_resource type="Texture2D" uid="uid://be3jrnftu0rx" path="res://alpheba.jpg" id="4_56ape"]
+[ext_resource type="Texture2D" uid="uid://cdiqke6klity3" path="res://scrolls/body2.png" id="4_sr1ag"]
+[ext_resource type="Texture2D" uid="uid://5mrd6i3yy382" path="res://scrolls/body1_hover.png" id="5_r5jyi"]
+[ext_resource type="Texture2D" uid="uid://dkb6audaosec1" path="res://scrolls/body1_pressed.png" id="6_0ttmo"]
+[ext_resource type="AudioStream" uid="uid://j3n2q35es13t" path="res://paper.wav" id="7_6rgwl"]
+[ext_resource type="Texture2D" uid="uid://bqeho4nw5q45r" path="res://caleb.png" id="10_pua2v"]
+[ext_resource type="Texture2D" uid="uid://dn0xp43bi3ojv" path="res://scrolls/body2_hover.png" id="10_ys6ke"]
+[ext_resource type="Texture2D" uid="uid://5ykbcjkkjaf4" path="res://scrolls/body2_pressed.png" id="11_hm7nx"]
+
+[sub_resource type="Gradient" id="Gradient_n07i5"]
+offsets = PackedFloat32Array(0.00377357, 1)
+colors = PackedColorArray(0.917647, 0.898039, 0.94902, 1, 0.917647, 0.898039, 0.94902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_japvm"]
+gradient = SubResource("Gradient_n07i5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b406k"]
+texture = ExtResource("4_47m3c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6v4q"]
+texture = ExtResource("5_r5jyi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3pnd"]
+texture = ExtResource("6_0ttmo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve3io"]
+texture = ExtResource("4_sr1ag")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kic7"]
+texture = ExtResource("10_ys6ke")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rikhq"]
+texture = ExtResource("11_hm7nx")
+
+[node name="Jobs" type="HBoxContainer"]
+custom_minimum_size = Vector2(1280, 1024)
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_ddh0o")
+
+[node name="Promo" type="Sprite2D" parent="."]
+position = Vector2(639, 748)
+rotation = -3.14159
+scale = Vector2(2.30652, 2.30652)
+texture = ExtResource("2_xcs0o")
+
+[node name="TextureRect2" type="TextureRect" parent="Promo"]
+z_index = -1
+offset_left = -282.0
+offset_top = -215.0
+offset_right = 279.0
+offset_bottom = 331.0
+texture = SubResource("GradientTexture1D_japvm")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.44
+
+[node name="Panel3" type="Panel" parent="VBoxContainer5"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("3_kx2fl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.1
+bbcode_enabled = true
+text = "[center][font_size=40]Gandwolf the Grey[/font_size]
+
+[font_size=28]Starting Job: Teleporter[/font_size]
+
+[font_size=24]Bonus: [color=005d00]-1 transport length[/color][/font_size]"
+fit_content = true
+
+[node name="Button" type="Button" parent="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_b406k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f6v4q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u3pnd")
+text = "Choose
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer/Button"]
+stream = ExtResource("7_6rgwl")
+volume_db = -14.102
+
+[node name="Panel4" type="Panel" parent="VBoxContainer5"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer5"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer5/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_8h528")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer5/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center][font_size=40]Hermione Granger[/font_size]
+
+[color=green][font_size=24][/font_size][/color]
+"
+fit_content = true
+
+[node name="Button" type="Button" parent="VBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Choose"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer5"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer5/VBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer5/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_56ape")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer5/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center][font_size=40]Alpheba[/font_size]
+
+[color=green][font_size=24][/font_size][/color]
+"
+fit_content = true
+
+[node name="Button" type="Button" parent="VBoxContainer5/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Choose"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer5/VBoxContainer4"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer5/VBoxContainer4/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("10_pua2v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer5/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer5/VBoxContainer4/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.94
+bbcode_enabled = true
+text = "[center][font_size=40]Caleb Widogast[/font_size]
+
+[font_size=28]Starting Job: Chef[/font_size]
+
+[font_size=24]Bonus: [color=005d00]20% faster cooking[/color][/font_size]
+"
+fit_content = true
+
+[node name="Button" type="Button" parent="VBoxContainer5/VBoxContainer4/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve3io")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1kic7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rikhq")
+text = "Choose
+"
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer/Button/AudioStreamPlayer" method="play"]
+[connection signal="pressed" from="VBoxContainer5/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="VBoxContainer5/VBoxContainer2/Button" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="VBoxContainer5/VBoxContainer3/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer5/VBoxContainer4/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed" binds= [3]]
